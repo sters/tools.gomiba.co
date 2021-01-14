@@ -11,6 +11,6 @@ jobs:
         run: |
           curl -i \
             -X POST \
-            -H "X-ONSTATIC-KEY: $ONSTATIC_KEY" \
+            -H "X-ONSTATIC-KEY: ${{ secrets.ONSTATIC_KEY }}" \
             -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
             https://static.gomiba.co/pull
