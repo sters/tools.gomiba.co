@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: deploy
         run: |
-          curl -v \
+          curl -i \
             -X POST \
             -H "X-ONSTATIC-KEY: $ONSTATIC_KEY" \
             -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
