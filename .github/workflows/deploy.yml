@@ -1,0 +1,16 @@
+
+name: Deploy
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: deploy
+        run: |
+          curl -v \
+            -X POST \
+            -H "X-ONSTATIC-KEY: $ONSTATIC_KEY" \
+            -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
+            https://static.gomiba.co/pull
