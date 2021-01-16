@@ -9,11 +9,17 @@ import (
 )
 
 const tpl = `
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
 <ul>
 {{ range $key, $value := . }}
 <li><a href="/{{ $key }}/">{{ $value }}</a></li>
 {{ end }}
 </ul>
+</body>
 `
 
 func main() {
