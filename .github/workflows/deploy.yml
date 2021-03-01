@@ -13,4 +13,5 @@ jobs:
             -X POST \
             -H "X-ONSTATIC-KEY: ${{ secrets.ONSTATIC_KEY }}" \
             -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
+            -H "X-ONSTATIC-REPONAME: builtxxxx" \
             https://static.gomiba.co/pull
