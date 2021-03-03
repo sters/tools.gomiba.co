@@ -33,6 +33,7 @@ jobs:
           git branch -a
           git checkout -f -b built origin/built
           cp -R /tmp/dist/* .
+          rm -rf ./node_modules
           git status
 
           git add .
