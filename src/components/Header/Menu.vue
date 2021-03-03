@@ -1,21 +1,15 @@
 <template>
   <v-navigation-drawer absolute temporary :value="drawer" @input="xxx">
     <v-list nav dense>
-      <v-list-item-group
-        active-class="deep-purple--text text--accent-4"
-      >
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
-
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Account</v-list-item-title>
+      <v-list-item-group active-class="deep-purple--text text--accent-4">
+        <v-list-item
+          v-for="item in routeList"
+          :key="item.path"
+          :to="item.path == '' ? '/' : item.path"
+        >
+          <v-list-item-title>
+            {{ item.name }}
+          </v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
@@ -31,6 +25,9 @@ export default Vue.extend({
   computed: {
     drawer() {
       return this.$store.state.showGlobalMenuDrawer;
+    },
+    routeList() {
+      return this.$store.getters.routeList;
     },
   },
 

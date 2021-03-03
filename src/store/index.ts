@@ -1,7 +1,10 @@
+import router from '@/router';
 import Vue from 'vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
+
+const routeList = router.getRoutes();
 
 export default new Vuex.Store({
   state: {
@@ -15,5 +18,10 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+  },
+  getters: {
+    routeList() {
+      return routeList;
+    },
   },
 });
