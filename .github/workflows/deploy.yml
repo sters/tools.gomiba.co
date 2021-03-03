@@ -29,7 +29,7 @@ jobs:
           cp -R dist /tmp/dist
           git fetch
           git branch -a
-          git checkout -b built origin/built
+          git checkout -f -b built origin/built
           cp -R /tmp/dist/* .
           git status
 
