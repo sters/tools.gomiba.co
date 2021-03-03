@@ -7,6 +7,7 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
+      - run: ls && pwd
       - run: npm install
       - run: npm run build
 
