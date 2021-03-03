@@ -4,31 +4,23 @@
     <Menu />
 
     <v-main>
-      <HelloWorld/>
-
-      <router-view></router-view>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from 'vue-property-decorator';
 import Header from './components/Header/Header.vue';
 import Menu from './components/Header/Menu.vue';
 
-export default Vue.extend({
-  name: 'App',
-
+@Component({
   components: {
-    HelloWorld,
     Header,
     Menu,
   },
-
-  data: () => ({}),
-
-  methods: {},
-
-});
+})
+export default class App extends Vue {}
 </script>

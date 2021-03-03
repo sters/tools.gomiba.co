@@ -7,11 +7,21 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - name: deploy
+      - run: npm install
+      - run: npm run build
+
+      - name: commit built branch
         run: |
-          curl -i \
-            -X POST \
-            -H "X-ONSTATIC-KEY: ${{ secrets.ONSTATIC_KEY }}" \
-            -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
-            -H "X-ONSTATIC-REPONAME: builtxxxx" \
-            https://static.gomiba.co/pull
+          cp -R dist /tmp/dist
+          git checkout -b origin/built
+          cp -R /tmp/dist/* .
+          git status
+
+      # - name: deploy
+      #   run: |
+      #     curl -i \
+      #       -X POST \
+      #       -H "X-ONSTATIC-KEY: ${{ secrets.ONSTATIC_KEY }}" \
+      #       -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
+      #       -H "X-ONSTATIC-REPONAME: builtxxxx" \
+      #       https://static.gomiba.co/pull

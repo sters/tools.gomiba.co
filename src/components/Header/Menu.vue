@@ -1,44 +1,29 @@
 <template>
   <v-navigation-drawer absolute temporary :value="drawer" @input="xxx">
-    <v-list nav dense>
-      <v-list-item-group active-class="deep-purple--text text--accent-4">
-        <v-list-item
-          v-for="item in routeList"
-          :key="item.path"
-          :to="item.path == '' ? '/' : item.path"
-        >
-          <v-list-item-title>
-            {{ item.name }}
-          </v-list-item-title>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+    <MenuItems />
   </v-navigation-drawer>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { Component, Vue } from 'vue-property-decorator';
+import MenuItems from './MenuItems.vue';
 
-export default Vue.extend({
-  name: 'Menu',
-
-  computed: {
-    drawer() {
-      return this.$store.state.showGlobalMenuDrawer;
-    },
-    routeList() {
-      return this.$store.getters.routeList;
-    },
+@Component({
+  components: {
+    MenuItems,
   },
+})
+export default class Menu extends Vue {
+  get drawer() {
+    return this.$store.state.showGlobalMenuDrawer;
+  }
 
-  methods: {
-    xxx(willState: boolean) {
-      this.$store.commit('switchGlobalMenuDrawer', willState);
-    },
-  },
+  get routeList() {
+    return this.$store.getters.routeList;
+  }
 
-  data: () => ({
-    menuItem: [{ name: 'foo', url: '#' }],
-  }),
-});
+  xxx(willState: boolean) {
+    this.$store.commit('switchGlobalMenuDrawer', willState);
+  }
+}
 </script>
