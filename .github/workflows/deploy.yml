@@ -40,11 +40,11 @@ jobs:
           git commit -m "built"
           git push
 
-      # - name: deploy
-      #   run: |
-      #     curl -i \
-      #       -X POST \
-      #       -H "X-ONSTATIC-KEY: ${{ secrets.ONSTATIC_KEY }}" \
-      #       -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
-      #       -H "X-ONSTATIC-REPONAME: builtxxxx" \
-      #       https://static.gomiba.co/pull
+      - name: deploy
+        run: |
+          curl -i \
+            -X POST \
+            -H "X-ONSTATIC-KEY: ${{ secrets.ONSTATIC_KEY }}" \
+            -H "X-ONSTATIC-REPONAME: git@github.com:sters/tools.gomiba.co.git" \
+            -H "X-ONSTATIC-BRANCH-NAME: built" \
+            https://static.gomiba.co/pull
