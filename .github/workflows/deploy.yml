@@ -27,6 +27,7 @@ jobs:
           git config user.email github-actions@github.com
 
           cp -R dist /tmp/dist
+          git fetch
           git branch -a
           git checkout -b built origin/built
           cp -R /tmp/dist/* .
