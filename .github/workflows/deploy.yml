@@ -20,13 +20,14 @@ jobs:
           git config user.email github-actions@github.com
 
           cp -R dist /tmp/dist
+          git branch -a
           git checkout -b built origin/built
           cp -R /tmp/dist/* .
           git status
 
           git add .
           git commit -m "built"
-          git push
+          # git push
 
       # - name: deploy
       #   run: |
