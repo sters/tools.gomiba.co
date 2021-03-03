@@ -38,7 +38,7 @@ jobs:
 
           git add .
           git commit -m "built"
-          # git push
+          git push
 
       # - name: deploy
       #   run: |
