@@ -19,8 +19,19 @@ if (process.env.NODE_ENV === 'production') {
     updatefound() {
       console.log('New content is downloading.');
     },
-    updated() {
+    async updated() {
       console.log('New content is available; please refresh.');
+      // cache cleanup
+      await window.navigator.serviceWorker.getRegistrations()
+        .then((registrations) => {
+          registrations.forEach((registration) => registration.unregister());
+        });
+      await caches.keys().then((cacheNames) => {
+        cacheNames.forEach((cacheName) => {
+          caches.delete(cacheName);
+        });
+      });
+      window.location.reload(true);
     },
     offline() {
       console.log('No internet connection found. App is running in offline mode.');
