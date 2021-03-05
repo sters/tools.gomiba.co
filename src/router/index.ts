@@ -19,7 +19,7 @@ const routes: Array<RouteConfig> = [
     name: 'MediastreamVideoTest',
     component: MediastreamVideoTest,
     meta: {
-      title: 'Mediastreamを使ったカメラデバイスの表示確認',
+      title: 'Mediastreamを使ったカメラデバイスの表示テスト',
     },
   },
 ];
