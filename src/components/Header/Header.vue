@@ -1,7 +1,7 @@
 <template>
   <v-app-bar app color="teal lighten-5">
     <v-app-bar-nav-icon @click="switchGlobalMenuDrawer"></v-app-bar-nav-icon>
-    <v-toolbar-title>tools.gomiba.co {{ title }}</v-toolbar-title>
+    <v-toolbar-title><router-link to="/">tools.gomiba.co</router-link> {{ title }}</v-toolbar-title>
   </v-app-bar>
 </template>
 

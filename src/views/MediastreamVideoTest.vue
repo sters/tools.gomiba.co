@@ -3,10 +3,12 @@
     <v-row>
       <v-col cols="12" sm="12" md="3" lg="2">
         <v-btn :class="$style.detect" @click="refreshDeviceList">DETECT VIDEO DEVICES</v-btn>
-        <v-select solo :items="deviceLabels" @change="onDeviceItemsChanged"></v-select>
+        <v-select solo :items="deviceLabels" @change="onDeviceItemsChanged"
+          placeholder="Choose device"></v-select>
         <v-btn class="restart" @click="reopenMediaStream">RESTART</v-btn>
         <v-btn class="switch" @click="flipDevice">FLIP</v-btn>
-        <v-textarea solo readonly wrap="off" :class="$style.infos" :value="deviceInfo"></v-textarea>
+        <v-textarea solo readonly wrap="off" :class="$style.infos" :value="deviceInfo"
+          placeholder="show device info here"></v-textarea>
       </v-col>
       <v-col cols="12" sm="12" md="9" lg="10">
         <video autoplay :class="$style.video" :srcObject.prop="stream"></video>
