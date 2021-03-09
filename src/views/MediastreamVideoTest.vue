@@ -165,6 +165,11 @@ export default class MediastreamVideoTest extends Vue {
   }
 
   beforeDestroy() {
+    if (this.stream !== null) {
+      this.stream.getTracks().forEach((track) => {
+        track.stop();
+      });
+    }
     this.stream = null;
   }
 }
