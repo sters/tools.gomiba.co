@@ -29,14 +29,25 @@ export default class MenuItems extends Vue {
   showPageTitle: boolean|undefined;
 
   get routeList() {
-    const list = this.$store.getters.routeList.map((x: Route) => {
+    return this.$store.getters.routeList.filter((x: Route) => {
       if (this.dontShowTop && x.name === 'TOP') {
         return null;
       }
+
+      if (x.meta.draft) {
+        if (process.env.NODE_ENV !== 'production') {
+          const z = x;
+          if (z.meta.title.indexOf('(draft)') === -1) {
+            z.meta.title += ' (draft)';
+            z.name += ' (draft)';
+          }
+          return z;
+        }
+        return null;
+      }
+
       return x;
     });
-
-    return list.filter((x: Route | null) => x);
   }
 }
 </script>

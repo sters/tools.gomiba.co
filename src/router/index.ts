@@ -29,6 +29,7 @@ const routes: Array<RouteConfig> = [
     component: QuickRetrospective,
     meta: {
       title: 'クイック振り返りツール',
+      draft: true,
     },
   },
 ];
