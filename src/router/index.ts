@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Top from '../views/Top.vue';
 import MediastreamVideoTest from '../views/MediastreamVideoTest.vue';
+import QuickRetrospective from '../views/QuickRetrospective.vue';
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,14 @@ const routes: Array<RouteConfig> = [
     component: MediastreamVideoTest,
     meta: {
       title: 'Mediastreamを使ったカメラデバイスの表示テスト',
+    },
+  },
+  {
+    path: '/quick_retrospective',
+    name: 'QuickRetrospective',
+    component: QuickRetrospective,
+    meta: {
+      title: 'クイック振り返りツール',
     },
   },
 ];
