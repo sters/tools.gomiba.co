@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.dc2bf77a6d1cd824b40e2a176302512f.js"
+  "/precache-manifest.7fe24705189ed0994987f1b25a80df67.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tools.gomiba.co"});
