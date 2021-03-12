@@ -97,6 +97,7 @@ export default class MediastreamVideoTest extends Vue {
   }
 
   async reopenMediaStream() {
+    this.closeStreams();
     this.stream = await navigator.mediaDevices.getUserMedia({
       video: {
         facingMode: this.mode,
@@ -160,17 +161,24 @@ export default class MediastreamVideoTest extends Vue {
     this.deviceInfo = texts.join('\n');
   }
 
-  mounted() {
-    this.refreshDeviceList();
-  }
-
-  beforeDestroy() {
+  closeStreams() {
     if (this.stream !== null) {
       this.stream.getTracks().forEach((track) => {
         track.stop();
       });
     }
     this.stream = null;
+    this.deviceInfo = '';
+  }
+
+  created() {
+    this.refreshDeviceList();
+  }
+
+  beforeDestroy() {
+    this.closeStreams();
+    this.deviceList = {};
+    this.deviceLabels = [];
   }
 }
 </script>
